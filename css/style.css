@@ -1,0 +1,957 @@
+/* Bakgrunnsbilder ble tatt fra Pexels */
+
+:root {
+   --main-color: #161A30;
+   /* Hovedfarge */
+   --red: #e74c3c;
+   /* Rød farge */
+   --orange: #2779a7;
+   /* Oransje farge */
+   --black: #31304D;
+   /* Svart farge */
+   --white: #fff;
+   /* Hvit farge */
+   --heavy-bg: #F0ECE5;
+   /* Bakgrunnsfarge for tungt innhold */
+   --light-bg: #f5f5f5;
+   /* Bakgrunnsfarge for lett innhold */
+   --light-color: #B6BBC4;
+   /* Lys tekstfarge */
+   --border: .1rem solid var(--black);
+   /* Grense med svart farge */
+   --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+   /* Skyggeeffekt */
+}
+
+/* Generelle stiler for hele siden */
+* {
+   font-family: 'Montserrat', sans-serif;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   outline: none;
+   border: none;
+   text-decoration: none;
+}
+
+/* Stil for markert tekst */
+*::selection {
+   background-color: var(--main-color);
+   color: var(--white);
+}
+
+/* Tilpassning av rullefeltet i WebKit-baserte nettlesere */
+::-webkit-scrollbar {
+   height: .5rem;
+   width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+   background-color: none;
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: var(--main-color);
+}
+
+/* Generelle stiler for HTML-dokumentet */
+html {
+   font-size: 62.5%;
+   /* Fontstørrelse på 62.5% for enklere bruk av rem-enheter */
+   overflow-x: hidden;
+   /* Skjul horisontal rulling */
+   scroll-behavior: smooth;
+   /* Rulling med jevn animasjon */
+   scroll-padding-top: 7rem;
+   /* Toppmargen for jevn rulling til ankerpunkter */
+}
+
+/* Generelle stiler for hele kroppen */
+body {
+   background-image: url(../images/background1.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+   padding-bottom: 7rem;
+   /* Ekstra bunnmarg for å unngå skjuling av innhold av fotofotter */
+}
+
+/* Stiler for hovedinnholdet på hjemmesiden */
+.home-body {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   background-image: url(../images/background1.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+/* Stiler for seksjoner */
+section {
+   padding: 2rem;
+   margin: 0 auto;
+   width: 100%;
+}
+
+/* Stiler for knapper og relaterte elementer */
+.btn,
+.delete-btn,
+.option-btn,
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn {
+   margin-top: 1rem;
+   cursor: pointer;
+   font-size: 1.8rem;
+   color: var(--white);
+   padding: 1.2rem 3rem;
+   text-transform: capitalize;
+   text-align: center;
+}
+
+/* Stiler for knapper som vises ved siden av hverandre */
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn {
+   display: inline-block;
+   margin-right: 1rem;
+}
+
+/* Generelle stiler for knapper og blokk-elementer */
+.btn,
+.delete-btn,
+.option-btn {
+   display: block;
+   width: 100%;
+}
+
+/* Farger for knapper i linje og blokk */
+.inline-btn,
+.btn {
+   background-color: var(--main-color);
+}
+
+.inline-delete-btn,
+.delete-btn {
+   background-color: var(--red);
+}
+
+.inline-option-btn,
+.option-btn {
+   background-color: var(--orange);
+}
+
+/* Endre farge ved hover-effekt for knapper */
+.btn:hover,
+.delete-btn:hover,
+.option-btn:hover,
+.inline-btn:hover,
+.inline-delete-btn:hover,
+.inline-option-btn:hover {
+   background-color: var(--black);
+}
+
+/* Stiler for knapper i en fleksibel kontekst */
+.flex-btn {
+   display: flex;
+   gap: 1rem;
+}
+
+/* Stiler for meldingsseksjonen */
+.message {
+   position: sticky;
+   top: 0;
+   max-width: 1200px;
+   margin: 0 auto;
+   background-color: #ffffff6d;
+   backdrop-filter: blur(10px);
+   padding: 2rem;
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   justify-content: space-between;
+}
+
+/* Stiler for meldingstekst og ikoner i meldingsseksjonen */
+.message span {
+   font-size: 2rem;
+   color: var(--black);
+}
+
+.message i {
+   font-size: 2.5rem;
+   color: var(--red);
+   cursor: pointer;
+}
+
+.message i:hover {
+   color: var(--black);
+}
+
+/* Stiler for tom seksjon */
+.empty {
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   padding: 1.5rem;
+   text-align: center;
+   width: 100%;
+   font-size: 2rem;
+   text-transform: capitalize;
+   color: var(--red);
+   box-shadow: var(--box-shadow);
+}
+
+/* Stiler for overskrifter */
+.heading {
+   margin-bottom: 2rem;
+   text-align: center;
+   font-size: 4rem;
+   color: var(--black);
+   text-transform: capitalize;
+}
+
+/* Stiler for header-seksjonen */
+.header {
+   background-color: #b0b0b068;
+   box-shadow: var(--box-shadow);
+   position: sticky;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 1000;
+}
+
+/* Fleksible stiler for header-elementer */
+.header .flex {
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+   justify-content: space-between;
+   position: relative;
+   padding: 1.5rem 2rem;
+}
+
+/* Stiler for logo og søkeform i header */
+.header .flex .logo {
+   font-size: 2.5rem;
+   color: var(--black);
+}
+
+.header .flex .search-form {
+   border: 1.5px solid #8e8e8e;
+   display: flex;
+   gap: 2rem;
+   padding: 1.5rem 2rem;
+   width: 50rem;
+}
+
+.header .flex .search-form .box {
+   width: 100%;
+   background: none;
+   font-size: 1.7rem;
+   color: var(--black);
+}
+
+.header .flex .search-form .fa-search {
+   font-size: 2rem;
+   cursor: pointer;
+   color: var(--black);
+   background: none;
+}
+
+/* Stiler for ikoner i header */
+.header .flex .icons {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 15%;
+}
+
+.header .flex .icons ion-icon {
+   cursor: pointer;
+   font-size: 5rem;
+}
+
+.header .flex .icons button {
+   cursor: pointer;
+   font-size: 1.2rem;
+   color: var(--white);
+   padding: 1rem 1rem;
+   text-transform: capitalize;
+   text-align: center;
+   background-color: var(--orange);
+}
+
+.header .flex .icons button:hover {
+   background-color: var(--black);
+}
+
+.header .flex .icons div {
+   font-size: 2rem;
+   color: var(--black);
+   cursor: pointer;
+   margin-left: .5rem;
+   height: 4.5rem;
+   width: 4.7rem;
+   line-height: 4rem;
+   border: var(--border);
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   text-align: center;
+}
+
+.header .flex .icons div:hover {
+   background-color: var(--black);
+   color: var(--white);
+}
+
+/* Stiler for navigasjonsmenyen i header */
+.header .flex .navbar {
+   position: absolute;
+   top: 125%;
+   right: 2rem;
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   width: 30rem;
+   box-shadow: var(--border);
+   display: none;
+   animation: .2s linear fadeIn;
+}
+
+.header .flex .navbar.active {
+   display: inline-block;
+}
+
+@keyframes fadeIn {
+   0% {
+      transform: translateY(1rem);
+   }
+}
+
+.header .flex .navbar a {
+   display: block;
+   margin: 2rem;
+   font-size: 2rem;
+   color: var(--black);
+}
+
+.header .flex .navbar a i {
+   margin-right: 1rem;
+   color: #000;
+   transition: .2s linear;
+}
+
+.header .flex .navbar a:hover i {
+   margin-right: 2rem;
+}
+
+/* Stiler for profilmenyen i header */
+.header .flex .profile {
+   position: absolute;
+   top: 125%;
+   right: 2rem;
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   width: 30rem;
+   box-shadow: var(--border);
+   display: none;
+   padding: 1.5rem;
+   animation: .2s linear fadeIn;
+   text-align: center;
+   overflow: hidden;
+}
+
+.header .flex .profile p {
+   padding-bottom: .7rem;
+   font-size: 2rem;
+   color: #fff;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.header .flex .profile.active {
+   display: inline-block;
+}
+
+/* Stiler for søkeknappen (skjules) */
+#search-btn {
+   display: none;
+}
+
+/* Stiler for containeren til skjemaer */
+.form-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: calc(100vh - 16rem);
+}
+
+/* Stiler for skjemaer */
+.form-container form {
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   box-shadow: var(--box-shadow);
+   padding: 2rem;
+   text-align: center;
+   width: 50rem;
+}
+
+/* Stiler for overskriftene i skjemaer */
+.form-container form h3 {
+   font-size: 2.5rem;
+   color: var(--black);
+   text-transform: uppercase;
+   margin-bottom: 1rem;
+}
+
+/* Stiler for teksten i skjemaer */
+.form-container form p {
+   padding-top: 1.5rem;
+   font-size: 2rem;
+   color: #fff;
+}
+
+.form-container form p a {
+   color: #003a5b;
+}
+
+.form-container form p a:hover {
+   text-decoration: underline;
+   color: var(--black);
+}
+
+/* Stiler for input-boksen i skjemaer */
+.form-container form .box {
+   width: 100%;
+   background-color: rgba(238, 238, 238, 0.601);
+   backdrop-filter: blur(10px);
+   padding: 1.4rem;
+   font-size: 1.4rem;
+   color: var(--black);
+   margin: 1rem 0;
+   font-size: 1.8rem;
+}
+
+/* Stiler for hjem-seksjonen */
+.home-section {
+   display: flex;
+   width: 100%;
+   justify-content: center;
+}
+
+/* Stiler for rutenettet i hjem-seksjonen */
+.home-grid {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+/* Stiler for containeren til boksene i hjem-seksjonen */
+.home-grid .box-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 1.5rem;
+   align-items: flex-start;
+   width: 100%;
+   margin-top: 12.75%;
+}
+
+/* Stiler for boksene i hjem-seksjonen */
+.home-grid .box-container .box {
+   box-shadow: var(--box-shadow);
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   padding: 2rem;
+   overflow: hidden;
+   max-width: 400px;
+}
+
+.home-grid .box-container .box p {
+   padding-bottom: 1rem;
+   font-size: 2rem;
+   color: var(--black);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.home-grid .box-container .box p span {
+   color: var(--main-color);
+}
+
+.home-grid .box-container .box .flex-box {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+   padding-top: 1rem;
+}
+
+.home-grid .box-container .box .flex-box .links {
+   padding: 1rem 3rem;
+   font-size: 2rem;
+   color: #F0ECE5;
+   background-color: #7f7f7f6e;
+}
+
+.home-grid .box-container .box .flex-box .links:hover {
+   background-color: var(--black);
+   color: var(--white);
+}
+
+/* Stiler for containeren til poster i rutenettet */
+.posts-container .box-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+}
+
+/* Stiler for poster-boksene */
+.posts-container .box-container .box {
+   box-shadow: var(--box-shadow);
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   padding: 2rem;
+   overflow: hidden;
+}
+
+/* Stiler for administratorinformasjon i poster-bokser */
+.posts-container .box-container .box .post-admin {
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+   margin-bottom: 2rem;
+}
+
+.posts-container .box-container .box .post-admin i {
+   text-align: center;
+   height: 4.5rem;
+   width: 2rem;
+   line-height: 4.2rem;
+   font-size: 2rem;
+   color: #161A30;
+}
+
+.posts-container .box-container .box .post-admin a {
+   font-size: 2rem;
+   color: var(--main-color);
+}
+
+.posts-container .box-container .box .post-admin a:hover {
+   color: var(--black);
+}
+
+.posts-container .box-container .box .post-admin div {
+   font-size: 1.5rem;
+   margin-top: .2rem;
+   color: #fff;
+}
+
+/* Stiler for bilde i post-bokser */
+.posts-container .box-container .box .post-image {
+   width: 100%;
+   margin-bottom: 2rem;
+}
+
+/* Stiler for tittel i post-bokser */
+.posts-container .box-container .box .post-title {
+   font-size: 2rem;
+   color: var(--black);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   margin-bottom: 1rem;
+}
+
+/* Stiler for innhold i post-bokser */
+.posts-container .box-container .box .post-content {
+   font-size: 2rem;
+   line-height: 1.5;
+   padding: .5rem 0;
+   color: #fff;
+   white-space: pre-line;
+}
+
+.posts-container .box-container .box .post-content::after {
+   content: '...';
+}
+
+/* Stiler for kategori i post-bokser */
+.posts-container .box-container .box .post-cat {
+   display: block;
+   margin-top: 2rem;
+   font-size: 1.7rem;
+}
+
+.posts-container .box-container .box .post-cat i {
+   margin-right: .5rem;
+   color: var(--light-color);
+}
+
+.posts-container .box-container .box .post-cat {
+   color: var(--main-color);
+}
+
+.posts-container .box-container .box .post-cat:hover {
+   color: var(--black);
+}
+
+/* Stiler for ikoner og knapper i post-bokser */
+.posts-container .box-container .box .icons {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1rem;
+   padding: 1.5rem 2rem;
+   border: var(--border);
+   margin-top: 2rem;
+}
+
+.posts-container .box-container .box .icons button {
+   cursor: pointer;
+   background-color: #ffffff00;
+}
+
+.posts-container .box-container .box .icons i {
+   margin-right: .5rem;
+   font-size: 2rem;
+   color: var(--light-color);
+}
+
+.posts-container .box-container .box .icons span {
+   font-size: 2rem;
+   color: #cecece;
+}
+
+.posts-container .box-container .box .icons *:hover {
+   color: var(--black);
+}
+
+/* Bakgrunnsfarge, tekstfarge, padding, fontstørrelse og avrunding for kommentartittel */
+.comments-container .comment-title {
+   background-color: var(--black);
+   color: var(--white);
+   padding: 1.5rem;
+   font-size: 2rem;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+}
+
+/* Margin, skygge, padding, bakgrunnsfarge og gjennomsiktighet for legg til kommentarseksjon */
+.comments-container .add-comment {
+   margin-bottom: 2rem;
+   box-shadow: var(--box-shadow);
+   padding: 2rem;
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+}
+
+/* Fontstørrelse, tekstfarge og avstand for legg til kommentar tekst */
+.comments-container .add-comment p {
+   font-size: 2rem;
+   color: var(--light-color);
+   margin-bottom: 1rem;
+}
+
+/* Marginal avstand mellom ikon og tekst i legg til kommentar seksjon */
+.comments-container .add-comment p i {
+   margin-right: 1rem;
+}
+
+/* Farge og understrekning ved hover for lenker i legg til kommentar seksjon */
+.comments-container .add-comment p a {
+   color: var(--main-color);
+}
+
+.comments-container .add-comment p a:hover {
+   text-decoration: underline;
+   color: var(--black);
+}
+
+/* Stil for tekstområde i legg til kommentarseksjon */
+.comments-container .add-comment textarea {
+   width: 100%;
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   padding: 1.5rem 2rem;
+   margin: 1rem 0;
+   font-size: 2rem;
+   color: var(--black);
+   height: 15rem;
+   resize: none;
+}
+
+/* Stil for brukerens kommentarseksjon */
+.comments-container .user-comments-container {
+   display: grid;
+   gap: 2.5rem;
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   box-shadow: var(--box-shadow);
+   padding: 2rem;
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+}
+
+/* Stil for tittel, farge og avstand for posttittel i brukerens kommentarseksjon */
+.comments-container .user-comments-container .show-comments .post-title {
+   margin-bottom: 1rem;
+   font-size: 2rem;
+   color: var(--light-color);
+}
+
+/* Farge for spesifikke deler av posttittel i brukerens kommentarseksjon */
+.comments-container .user-comments-container .show-comments .post-title span {
+   color: var(--black);
+   line-height: 1.5;
+}
+
+/* Farge og understrekning ved hover for lenker i posttittel i brukerens kommentarseksjon */
+.comments-container .user-comments-container .show-comments .post-title a {
+   color: var(--main-color);
+}
+
+.comments-container .user-comments-container .show-comments .post-title a:hover {
+   text-decoration: underline;
+}
+
+/* Stil for kommentarbruker i brukerens kommentarseksjon */
+.comments-container .user-comments-container .show-comments .comment-user {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   margin-bottom: 1.5rem;
+}
+
+/* Stil for ikon i kommentarbruker i brukerens kommentarseksjon */
+.comments-container .user-comments-container .show-comments .comment-user i {
+   text-align: center;
+   height: 5rem;
+   width: 5rem;
+   line-height: 4.7rem;
+   font-size: 2rem;
+   color: var(--light-bg);
+}
+
+/* Stil for tekst i kommentarbruker i brukerens kommentarseksjon */
+.comments-container .user-comments-container .show-comments .comment-user span {
+   font-size: 2rem;
+   color: var(--main-color);
+}
+
+/* Stil for ekstra informasjon i kommentarbruker i brukerens kommentarseksjon */
+.comments-container .user-comments-container .show-comments .comment-user div {
+   font-size: 1.5rem;
+   margin-top: .2rem;
+   color: var(--light-color);
+}
+
+/* Stil for kommentartekst i brukerens kommentarseksjon */
+.comments-container .user-comments-container .show-comments .comment-text {
+   line-height: 1.5;
+   font-size: 1.7rem;
+   color: var(--light-color);
+}
+
+/* Stil for kommentarboks i brukerens kommentarseksjon */
+.comments-container .user-comments-container .show-comments .comment-box {
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   padding: 1.5rem 2rem;
+   font-size: 2rem;
+   color: var(--black);
+   width: 100%;
+   white-space: pre-line;
+   line-height: 1.5;
+}
+
+/* Stil for tekstområde i brukerens kommentarseksjon */
+.comments-container .user-comments-container .show-comments textarea {
+   resize: none;
+   border: var(--border);
+}
+
+/* Stil for kommentarredigeringsform */
+.comment-edit-form {
+   padding-bottom: 0;
+}
+
+/* Stil for tittel, bakgrunnsfarge, tekstfarge og avstand for kommentarredigeringsform */
+.comment-edit-form p {
+   background-color: var(--black);
+   color: var(--white);
+   padding: 1.5rem;
+   font-size: 2rem;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+}
+
+/* Stil for skjema i kommentarredigeringsform */
+.comment-edit-form form {
+   border-bottom-left-radius: .5rem;
+   border-bottom-right-radius: .5rem;
+   padding: 2rem;
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   box-shadow: var(--box-shadow);
+}
+
+/* Stil for tekstområde i kommentarredigeringsform */
+.comment-edit-form form textarea {
+   font-size: 2rem;
+   color: var(--black);
+   line-height: 1.5;
+   height: 15rem;
+   width: 100%;
+   resize: none;
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   padding: 1.5rem;
+   margin-bottom: .5rem;
+}
+
+/* Stil for bokscontainer i forfatterseksjonen */
+.authors .box-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+}
+
+/* Stil for boks i forfatterseksjonen */
+.authors .box-container .box {
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   padding: 2rem;
+   box-shadow: var(--box-shadow);
+}
+
+/* Stil for tekst i forfatterseksjonens boks */
+.authors .box-container .box p {
+   padding-bottom: 1rem;
+   font-size: 2rem;
+   color: #fff;
+}
+
+/* Stil for spesifikk tekst i forfatterseksjonens boks */
+.authors .box-container .box p span {
+   color: var(--main-color);
+}
+
+/* Stil for bokscontainer i kategoriseksjonen */
+.categories .box-container {
+   background-color: #b0b0b068;
+   backdrop-filter: blur(10px);
+   padding: 1rem 2rem;
+   box-shadow: var(--box-shadow);
+}
+
+/* Stil for boks i kategoriseksjonen */
+.categories .box-container .box {
+   padding: 1rem 0;
+   font-size: 2rem;
+}
+
+/* Stil for spesifikk tekst i kategoriseksjonens boks */
+.categories .box-container .box span {
+   color: var(--light-color);
+   display: inline-block;
+   padding: .7rem 1rem;
+   background-color: var(--light-bg);
+   text-align: center;
+}
+
+/* Stil for lenker i kategoriseksjonens boks */
+.categories .box-container .box a {
+   margin-left: 1.2rem;
+   color: #fff;
+}
+
+/* Stil for lenker ved hover i kategoriseksjonens boks */
+.categories .box-container .box a:hover {
+   color: var(--main-color);
+   text-decoration: underline;
+}
+
+/* Stil for bunntekst */
+.footer {
+   background-color: var(--white);
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   border-top: var(--border);
+   text-align: center;
+   font-size: 2rem;
+   color: var(--light-color);
+   padding: 2rem;
+}
+
+/* Farge for spesifikk tekst i bunnteksten */
+.footer span {
+   color: var(--main-color);
+}
+
+/* Stiler for responsive design ved maks bredde 991px */
+@media (max-width:991px) {
+   html {
+      font-size: 55%;
+      /* Reduser fontstørrelsen ved mindre skjermstørrelse */
+   }
+}
+
+/* Stiler for responsive design ved maks bredde 768px */
+@media (max-width:768px) {
+   body {
+      padding-bottom: 10rem;
+      /* Øk bunnmargen for å unngå skjuling av innhold av fotofotter */
+   }
+
+   #search-btn {
+      display: inline-block;
+      /* Vis søkeknappen ved mindre skjermstørrelse */
+   }
+
+   /* Stiler for søkeformularet ved mindre skjermstørrelse */
+   .header .flex .search-form {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      transition: .2s linear;
+   }
+
+   .header .flex .search-form.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      /* Aktiver animert overgang for søkeformularet */
+   }
+}
+
+/* Stiler for responsive design ved maks bredde 450px */
+@media (max-width:450px) {
+   html {
+      font-size: 50%;
+      /* Reduser fontstørrelsen ytterligere ved mindre skjermstørrelse */
+   }
+
+   .heading {
+      font-size: 3rem;
+      /* Juster overskriftsstørrelsen ved mindre skjermstørrelse */
+   }
+}
